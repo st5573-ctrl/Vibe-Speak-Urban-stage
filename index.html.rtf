@@ -1,0 +1,1254 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>VibeSpeak - US & UK Urban Slang Flashcards</title>\
+    <!-- Tailwind CSS -->\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <!-- Google Fonts: Inter & Outfit -->\
+    <link rel="preconnect" href="https://fonts.googleapis.com">\
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">\
+    <!-- Font Awesome Icons -->\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">\
+    \
+    <script>\
+        tailwind.config = \{\
+            theme: \{\
+                extend: \{\
+                    fontFamily: \{\
+                        sans: ['Inter', 'sans-serif'],\
+                        outfit: ['Outfit', 'sans-serif'],\
+                    \},\
+                    colors: \{\
+                        neoYellow: '#FDE047',\
+                        neoOrange: '#FB923C',\
+                        neoPink: '#F472B6',\
+                        neoBlue: '#38BDF8',\
+                        neoPurple: '#818CF8',\
+                        neoGreen: '#4ADE80',\
+                        darkBg: '#0F172A',\
+                    \}\
+                \}\
+            \}\
+        \}\
+    </script>\
+    <style>\
+        .neo-box \{\
+            border: 4px solid #000000;\
+            box-shadow: 4px 4px 0px #000000;\
+            transition: all 0.2s ease;\
+        \}\
+        .neo-box:hover \{\
+            transform: translate(-2px, -2px);\
+            box-shadow: 6px 6px 0px #000000;\
+        \}\
+        .neo-box-active \{\
+            transform: translate(2px, 2px);\
+            box-shadow: 2px 2px 0px #000000;\
+        \}\
+        .neo-btn \{\
+            border: 3px solid #000000;\
+            box-shadow: 3px 3px 0px #000000;\
+            transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);\
+        \}\
+        .neo-btn:hover \{\
+            transform: translate(-1px, -1px);\
+            box-shadow: 4px 4px 0px #000000;\
+        \}\
+        .neo-btn:active \{\
+            transform: translate(2px, 2px);\
+            box-shadow: 1px 1px 0px #000000;\
+        \}\
+        \
+        .perspective-1000 \{\
+            perspective: 1000px;\
+        \}\
+        .card-inner \{\
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);\
+            transform-style: preserve-3d;\
+            position: relative;\
+            width: 100%;\
+            height: 100%;\
+        \}\
+        .card-flipped \{\
+            transform: rotateY(180deg);\
+        \}\
+        .card-front, .card-back \{\
+            backface-visibility: hidden;\
+            -webkit-backface-visibility: hidden; /* Fix for safari environments */\
+            position: absolute;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+        \}\
+        .card-front \{\
+            z-index: 2;\
+            transform: rotateY(0deg);\
+        \}\
+        .card-back \{\
+            transform: rotateY(180deg);\
+            z-index: 1;\
+        \}\
+\
+        /* Custom scrollbar style */\
+        ::-webkit-scrollbar \{\
+            width: 12px;\
+        \}\
+        ::-webkit-scrollbar-track \{\
+            background: #1e293b;\
+            border-left: 3px solid #000000;\
+        \}\
+        ::-webkit-scrollbar-thumb \{\
+            background: #818cf8;\
+            border: 3px solid #000000;\
+            border-radius: 4px;\
+        \}\
+        ::-webkit-scrollbar-thumb:hover \{\
+            background: #f472b6;\
+        \}\
+    </style>\
+</head>\
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen pb-12 overflow-x-hidden">\
+\
+    <header class="border-b-4 border-black bg-indigo-600 py-6 px-4 md:px-8 sticky top-0 z-40 shadow-lg">\
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">\
+            <div class="flex items-center gap-3 cursor-pointer" onclick="smoothScroll(event, 'welcome-hero')">\
+                <span class="text-3xl md:text-4xl font-outfit font-black text-black bg-neoYellow px-4 py-2 border-4 border-black rotate-[-2deg] inline-block shadow-[4px_4px_0px_#000]">\
+                    VIBE SPEAK!\
+                </span>\
+                <div class="hidden sm:block">\
+                    <p class="font-outfit font-bold text-white text-lg tracking-wide">English Slang Hub</p>\
+                    <p class="text-xs text-yellow-200 font-semibold font-outfit">Teacher's Guide \'95 NYC vs LDN Vocabulary</p>\
+                </div>\
+            </div>\
+            \
+            <nav class="flex flex-wrap items-center gap-3 justify-center">\
+                <button onclick="smoothScroll(event, 'flashcard-section')" class="bg-neoBlue text-black font-outfit font-bold px-4 py-2 rounded-lg neo-btn text-sm">\
+                    <i class="fa-solid fa-layer-group mr-2"></i>Flashcards\
+                </button>\
+                <button onclick="smoothScroll(event, 'index-section')" class="bg-neoPink text-black font-outfit font-bold px-4 py-2 rounded-lg neo-btn text-sm">\
+                    <i class="fa-solid fa-list mr-2"></i>Slang Index\
+                </button>\
+                <button onclick="smoothScroll(event, 'teachers-corner')" class="bg-neoGreen text-black font-outfit font-bold px-4 py-2 rounded-lg neo-btn text-sm">\
+                    <i class="fa-solid fa-graduation-cap mr-2"></i>Teacher Tips\
+                </button>\
+                <button onclick="openFavoritesModal()" class="bg-rose-500 text-white font-outfit font-bold px-4 py-2 rounded-lg neo-btn text-sm relative">\
+                    <i class="fa-solid fa-heart mr-2"></i>Favorites\
+                    <span id="fav-badge-count" class="absolute -top-2 -right-2 bg-yellow-300 text-black border-2 border-black rounded-full text-xs w-6 h-6 flex items-center justify-center font-bold">0</span>\
+                </button>\
+            </nav>\
+        </div>\
+    </header>\
+\
+    <main class="max-w-7xl mx-auto px-4 mt-8">\
+        \
+        <div id="welcome-hero" class="bg-slate-800 border-4 border-black rounded-2xl p-6 md:p-8 neo-box mb-10 flex flex-col lg:flex-row items-center gap-6 relative overflow-hidden">\
+            <div class="absolute -right-16 -top-16 w-48 h-48 bg-purple-500/10 rounded-full blur-2xl"></div>\
+            \
+            <div class="flex-shrink-0 text-center lg:text-left">\
+                <div class="inline-block relative">\
+                    <div class="w-24 h-24 bg-neoPink rounded-full border-4 border-black flex items-center justify-center text-4xl shadow-[3px_3px_0px_#000] rotate-[-5deg]">\
+                        \uc0\u55357 \u56424 \u8205 \u55356 \u57323 \
+                    </div>\
+                    <div class="w-12 h-12 bg-neoBlue rounded-full border-4 border-black flex items-center justify-center text-xl absolute -bottom-2 -right-2 shadow-[2px_2px_0px_#000] rotate-[10deg]">\
+                        \uc0\u55356 \u56812 \u55356 \u56807 \
+                    </div>\
+                </div>\
+            </div>\
+            \
+            <div class="flex-1 text-center lg:text-left z-10">\
+                <span class="bg-neoOrange text-black text-xs font-bold px-3 py-1 rounded-full border-2 border-black uppercase tracking-wider inline-block mb-3">\
+                    Teacher & Student Platform\
+                </span>\
+                <h1 class="text-2xl md:text-3xl font-outfit font-black text-white mb-2">Learn Real Street English (US & UK Slang)</h1>\
+                <p class="text-slate-300 max-w-3xl leading-relaxed">\
+                    Say goodbye to boring textbooks! Dive into <strong class="text-neoYellow">NYC Bodega culture</strong> and classic <strong class="text-neoPink">London street terms</strong>. Flip cards around, look at fun situational photos, practice real pronunciation with localized voices, and play the letter-scramble word game on the back of each card!\
+                </p>\
+            </div>\
+        </div>\
+\
+        <div id="flashcard-section" class="mb-8 bg-slate-800 border-4 border-black p-4 md:p-6 rounded-2xl neo-box flex flex-col md:flex-row gap-4 justify-between items-center scroll-mt-24">\
+            \
+            <!-- Category Tabs -->\
+            <div class="flex flex-wrap gap-2 w-full md:w-auto">\
+                <button onclick="filterSlangs('all')" id="btn-filter-all" class="flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-neoYellow text-black text-sm">\
+                    \uc0\u9889  All Slang Words\
+                </button>\
+                <button onclick="filterSlangs('US')" id="btn-filter-us" class="flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-slate-700 text-white text-sm">\
+                    \uc0\u55356 \u56826 \u55356 \u56824  New York City Slang\
+                </button>\
+                <button onclick="filterSlangs('UK')" id="btn-filter-uk" class="flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-slate-700 text-white text-sm">\
+                    \uc0\u55356 \u56812 \u55356 \u56807  London Slang\
+                </button>\
+            </div>\
+\
+            <!-- Quick Search Input -->\
+            <div class="relative w-full md:w-80">\
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">\
+                    <i class="fa-solid fa-magnifying-glass"></i>\
+                </span>\
+                <input type="text" id="main-search-input" onkeyup="handleQuickSearch(this.value)" placeholder="Search any slang word..." class="w-full bg-slate-900 border-3 border-black rounded-xl py-2.5 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-neoPurple placeholder-slate-500 font-semibold font-outfit text-sm">\
+            </div>\
+        </div>\
+\
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">\
+            \
+            <!-- Left Side: Interactive 3D Flip Card Widget -->\
+            <div class="lg:col-span-8 flex flex-col items-center">\
+                \
+                <!-- The Core 3D Flashcard Container -->\
+                <div class="w-full max-w-md perspective-1000">\
+                    <div id="flashcard-inner" class="card-inner relative w-full h-[620px] cursor-pointer">\
+                        \
+                        <!-- CARD FRONT -->\
+                        <div class="card-front bg-slate-800 border-4 border-black rounded-3xl p-6 flex flex-col justify-between shadow-[6px_6px_0px_#000] overflow-hidden">\
+                            <!-- Top Status -->\
+                            <div class="flex items-center justify-between z-10">\
+                                <span id="card-origin-badge" class="bg-neoYellow text-black font-outfit font-bold text-xs px-3 py-1.5 border-2 border-black rounded-full flex items-center gap-1.5">\
+                                    <!-- Dynamic Badge -->\
+                                </span>\
+                                <button id="fav-btn-front" onclick="event.stopPropagation(); toggleCurrentFavorite();" class="w-10 h-10 rounded-full border-2 border-black bg-white flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors">\
+                                    <i class="fa-solid fa-heart text-lg"></i>\
+                                </button>\
+                            </div>\
+\
+                            <!-- Mid Card: Slang Term Display & Context Image -->\
+                            <div class="my-auto text-center flex flex-col items-center z-10 px-2 w-full">\
+                                <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">STREET SLANG WORD</p>\
+                                <h2 id="card-slang-title" class="text-4xl sm:text-5xl font-outfit font-black text-white leading-tight mb-4 tracking-tight drop-shadow-sm">\
+                                    <!-- Dynamic Slang -->\
+                                </h2>\
+                                \
+                                <!-- Embedded Dynamic Contextual Image -->\
+                                <div class="w-full h-44 border-3 border-black bg-slate-900 rounded-2xl overflow-hidden relative mb-4">\
+                                    <img id="card-front-visual-img" src="" alt="Vocabulary context representation" class="w-full h-full object-cover">\
+                                </div>\
+\
+                                <span class="bg-indigo-950 text-indigo-300 font-semibold text-xs py-1.5 px-3 rounded-full border border-indigo-700/50 inline-flex items-center gap-2">\
+                                    <i class="fa-solid fa-rotate mr-1"></i> Tap to flip and reveal definition!\
+                                </span>\
+                            </div>\
+\
+                            <!-- Footer Info -->\
+                            <div class="border-t-2 border-slate-700 pt-4 flex items-center justify-between text-xs text-slate-400 z-10">\
+                                <span>Slang Pronunciation Lab</span>\
+                                <span id="card-index-indicator"><!-- Dynamic Index --></span>\
+                            </div>\
+                            \
+                            <!-- Design Decor -->\
+                            <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-indigo-500/10 rounded-full pointer-events-none"></div>\
+                        </div>\
+\
+                        <!-- CARD BACK (Upreared details & Interactive Letter Scramble Game) -->\
+                        <div class="card-back bg-slate-800 border-4 border-black rounded-3xl p-6 flex flex-col justify-between shadow-[6px_6px_0px_#000] overflow-hidden">\
+                            \
+                            <!-- Header Tools -->\
+                            <div class="flex items-center justify-between mb-2">\
+                                <span id="card-back-category-badge" class="bg-neoGreen text-black font-outfit font-bold text-xs px-3 py-1 border-2 border-black rounded-full uppercase">\
+                                    Definition\
+                                </span>\
+                                <div class="flex gap-2">\
+                                    <button id="card-info-btn" onclick="event.stopPropagation(); triggerUsageExampleModal();" class="w-9 h-9 bg-neoBlue text-black font-bold border-2 border-black rounded-full flex items-center justify-center hover:scale-110 transition-transform" title="Show usage examples">\
+                                        <i class="fa-solid fa-info"></i>\
+                                    </button>\
+                                    <button id="fav-btn-back" onclick="event.stopPropagation(); toggleCurrentFavorite();" class="w-9 h-9 rounded-full border-2 border-black bg-white flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors">\
+                                        <i class="fa-solid fa-heart text-base"></i>\
+                                    </button>\
+                                </div>\
+                            </div>\
+\
+                            <!-- Word Meaning -->\
+                            <div class="flex-1 flex flex-col justify-start items-center gap-2 mt-2">\
+                                <div class="text-center">\
+                                    <h3 id="card-back-slang-word" class="text-2xl font-outfit font-black text-neoYellow">Word</h3>\
+                                    <p id="card-back-definition" class="text-sm text-slate-200 font-medium px-4 leading-relaxed mt-1">\
+                                        <!-- Dynamic English Meaning -->\
+                                    </p>\
+                                </div>\
+\
+                                <div class="w-full bg-slate-900 border-2 border-black rounded-2xl p-3 my-2 text-center" onclick="event.stopPropagation();">\
+                                    <div class="flex items-center justify-between mb-1.5 px-1">\
+                                        <span class="text-[11px] font-outfit font-black text-neoOrange uppercase tracking-wider">\
+                                            \uc0\u55358 \u56809  Unscramble the letters:\
+                                        </span>\
+                                        <button onclick="resetScrambleGame(event)" class="text-[10px] text-slate-400 hover:text-neoPink font-bold flex items-center gap-1">\
+                                            <i class="fa-solid fa-rotate-left"></i> Reset\
+                                        </button>\
+                                    </div>\
+                                    \
+                                    <!-- Scrambled Options Container -->\
+                                    <div id="scramble-options-container" class="flex flex-wrap gap-1.5 justify-center mb-2">\
+                                        <!-- Dynamic Clickable Option Letters -->\
+                                    </div>\
+\
+                                    <!-- User Guess Box -->\
+                                    <div id="scramble-guess-box" class="bg-slate-950 border-2 border-dashed border-slate-700 min-h-[38px] rounded-xl flex items-center justify-center gap-1 p-1">\
+                                        <!-- Selected Letters Go Here -->\
+                                    </div>\
+                                    \
+                                    <!-- Answer Verification Badge -->\
+                                    <div id="scramble-status-msg" class="text-[10px] font-bold text-slate-500 mt-1">\
+                                        Click letters in order to build the slang word!\
+                                    </div>\
+                                </div>\
+                            </div>\
+\
+                            <!-- Footer pronunciation voice control -->\
+                            <div class="mt-2 flex flex-col gap-2">\
+                                <button onclick="event.stopPropagation(); speakCurrentSlang();" class="w-full bg-neoPurple text-black font-outfit font-extrabold py-2 px-4 rounded-xl border-2 border-black neo-btn flex items-center justify-center gap-2">\
+                                    <i class="fa-solid fa-volume-high text-lg"></i> Listen Accent (<span id="accent-lbl">US Accent</span>)\
+                                </button>\
+                                <div class="flex justify-between items-center text-xs text-slate-400 pt-1 border-t border-slate-700/50">\
+                                    <span>Tap card to flip back</span>\
+                                    <span>VibeSpeak Premium</span>\
+                                </div>\
+                            </div>\
+                        </div>\
+\
+                    </div>\
+                </div>\
+\
+                <!-- Slide Navigation Controls -->\
+                <div class="flex items-center gap-4 mt-6">\
+                    <button onclick="prevCard()" class="w-14 h-12 bg-slate-800 border-3 border-black rounded-xl neo-btn flex items-center justify-center text-white font-bold" title="Previous card">\
+                        <i class="fa-solid fa-arrow-left text-lg"></i>\
+                    </button>\
+                    <span id="deck-tracker" class="font-outfit font-bold text-slate-300 bg-slate-800 border-2 border-black py-1 px-4 rounded-full">\
+                        1 / 10\
+                    </span>\
+                    <button onclick="nextCard()" class="w-14 h-12 bg-slate-800 border-3 border-black rounded-xl neo-btn flex items-center justify-center text-white font-bold" title="Next card">\
+                        <i class="fa-solid fa-arrow-right text-lg"></i>\
+                    </button>\
+                </div>\
+\
+            </div>\
+\
+            <div class="lg:col-span-4 space-y-6">\
+                \
+                <!-- Word Spotlight Details -->\
+                <div class="bg-slate-800 border-4 border-black p-6 rounded-2xl neo-box">\
+                    <h3 class="font-outfit font-black text-xl text-white flex items-center gap-2 mb-4">\
+                        <span class="text-2xl">\uc0\u55357 \u56481 </span> Everyday Usage Example\
+                    </h3>\
+                    \
+                    <div class="space-y-4 text-sm">\
+                        <div class="bg-slate-900/60 p-4 rounded-xl border-2 border-black">\
+                            <p class="text-xs text-neoPink font-bold uppercase mb-2">Example Sentence</p>\
+                            <p id="panel-example-sentence" class="italic text-white font-semibold text-base leading-relaxed">\
+                                "Example sentence..."\
+                            </p>\
+                        </div>\
+\
+                        <div>\
+                            <p class="text-xs text-neoYellow uppercase font-bold tracking-wider">Pronunciation & Accent Tip</p>\
+                            <p id="panel-accent-desc" class="text-slate-300 mt-1 leading-relaxed text-xs">\
+                                Listen closely to how vowels sound. US and UK speakers pronounce vowels and consonants differently depending on local dialects.\
+                            </p>\
+                        </div>\
+\
+                        <!-- Accent Information Banner -->\
+                        <div class="bg-blue-900/40 p-3 rounded-lg border border-blue-700/50 flex items-start gap-2.5">\
+                            <i class="fa-solid fa-circle-info text-blue-400 mt-0.5"></i>\
+                            <p class="text-xs text-blue-200 leading-relaxed">\
+                                <strong class="text-white">Active Accent Matcher:</strong> The voice engine will automatically adjust to US English for NYC terms and British English for London terms.\
+                            </p>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+                <!-- Interactive Mini-Quiz Component -->\
+                <div class="bg-slate-800 border-4 border-black p-6 rounded-2xl neo-box">\
+                    <h3 class="font-outfit font-black text-xl text-white flex items-center gap-2 mb-3">\
+                        <span class="text-2xl">\uc0\u55356 \u57262 </span> Quick Vibe Check!\
+                    </h3>\
+                    <p class="text-xs text-slate-300 mb-4">Test your real street English knowledge right now.</p>\
+                    \
+                    <div id="quiz-container" class="space-y-3">\
+                        <!-- Dynamic Quiz Question Card -->\
+                    </div>\
+                </div>\
+\
+            </div>\
+\
+        </div>\
+\
+        <section id="index-section" class="mb-12 scroll-mt-24">\
+            <div class="bg-slate-800 border-4 border-black p-6 rounded-2xl neo-box">\
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">\
+                    <div>\
+                        <h2 class="text-2xl md:text-3xl font-outfit font-black text-white flex items-center gap-2">\
+                            <span class="bg-neoPink text-black p-2 border-2 border-black rounded-xl text-sm md:text-lg">\uc0\u55357 \u56538 </span> \
+                            Complete Slang Index\
+                        </h2>\
+                        <p class="text-sm text-slate-300 mt-1">Review the full list of words, origins, meanings, and practical street usage.</p>\
+                    </div>\
+                    \
+                    <!-- Search inside Index -->\
+                    <div class="relative w-full md:w-72">\
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">\
+                            <i class="fa-solid fa-filter"></i>\
+                        </span>\
+                        <input type="text" id="index-search-input" onkeyup="filterIndexTable(this.value)" placeholder="Filter list by text..." class="w-full bg-slate-900 border-3 border-black rounded-xl py-2 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-neoPink text-sm font-semibold">\
+                    </div>\
+                </div>\
+\
+                <!-- Table Content Container -->\
+                <div class="overflow-x-auto border-3 border-black rounded-2xl bg-slate-900">\
+                    <table class="w-full text-left border-collapse">\
+                        <thead>\
+                            <tr class="bg-slate-800 border-b-3 border-black text-slate-200 text-xs md:text-sm uppercase tracking-wider font-outfit">\
+                                <th class="py-3 px-4 font-black">Slang Word</th>\
+                                <th class="py-3 px-4 font-black">Region & Dialect</th>\
+                                <th class="py-3 px-4 font-black">Meaning</th>\
+                                <th class="py-3 px-4 hidden md:table-cell font-black">Usage Scenario</th>\
+                                <th class="py-3 px-4 text-center font-black">Actions</th>\
+                            </tr>\
+                        </thead>\
+                        <tbody id="slang-index-tbody" class="divide-y-2 divide-slate-800 text-slate-300 text-sm">\
+                            <!-- Dynamic Table Rows -->\
+                        </tbody>\
+                    </table>\
+                </div>\
+            </div>\
+        </section>\
+\
+        <section id="teachers-corner" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 scroll-mt-24">\
+            \
+            <div class="bg-slate-800 border-4 border-black p-6 rounded-2xl neo-box md:col-span-2">\
+                <h3 class="text-xl md:text-2xl font-outfit font-black text-white flex items-center gap-2 mb-4">\
+                    <span class="text-3xl">\uc0\u55357 \u56803 \u65039 </span> Teacher's Corner: Slang is Cultural Identity\
+                </h3>\
+                <div class="space-y-4 text-sm text-slate-300 leading-relaxed">\
+                    <p>\
+                        Language is a living organism! While formal grammar rules keep structure in place, street vocabulary, or <strong class="text-neoYellow">slang</strong>, is how real communities bond.\
+                    </p>\
+                    <p>\
+                        In New York City, slang terms are highly influenced by the mix of fast-paced lifestyles, multicultural neighborhoods, and corner-store conveniences. In London, slang is built around pub gatherings, local borough accents, and traditional dry humor.\
+                    </p>\
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">\
+                        <div class="bg-indigo-950/40 p-4 border border-indigo-800/60 rounded-xl">\
+                            <p class="font-outfit font-bold text-neoBlue mb-1">\uc0\u55357 \u56829  NYC Slang Essentials</p>\
+                            <p class="text-xs">Often direct, intense, and heavily tied to physical community landmarks like the classic local 24/7 bodega store.</p>\
+                        </div>\
+                        <div class="bg-pink-950/40 p-4 border border-pink-800/60 rounded-xl">\
+                            <p class="font-outfit font-bold text-neoPink mb-1">\uc0\u55356 \u57249  LDN Slang Essentials</p>\
+                            <p class="text-xs">Typically rhythmic, often shortening statements into questions like "innit", or relying on regional British charm.</p>\
+                        </div>\
+                    </div>\
+                </div>\
+            </div>\
+\
+            <!-- Dynamic Fast Fact Card -->\
+            <div class="bg-indigo-600 border-4 border-black p-6 rounded-2xl neo-box text-black flex flex-col justify-between">\
+                <div>\
+                    <span class="bg-black text-neoYellow font-outfit font-bold text-xs py-1 px-3 border-2 border-black rounded-full uppercase tracking-wider inline-block mb-3">\
+                        Linguistics Fact\
+                    </span>\
+                    <h4 class="text-xl font-outfit font-black text-white leading-tight mb-2">Same Thing, Different Words!</h4>\
+                    <p class="text-sm text-slate-100 leading-relaxed font-medium">\
+                        Notice how Americans say <strong class="text-yellow-300">"Fries"</strong> and stop by a <strong class="text-yellow-300">"Bodega"</strong>, whereas British speakers say <strong class="text-yellow-300">"Chips"</strong> and grab groceries at a <strong class="text-yellow-300">"Corner shop"</strong>. Learning these pairs makes you bilingual in global English!\
+                    </p>\
+                </div>\
+                <div class="mt-4 pt-4 border-t border-black/20 flex justify-between items-center text-xs font-bold">\
+                    <span>VibeSpeak Research Labs</span>\
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>\
+                </div>\
+            </div>\
+\
+        </section>\
+\
+    </main>\
+\
+    <!-- FAVORITES LIST MODAL -->\
+    <div id="favorites-modal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-center justify-center p-4 hidden">\
+        <div class="bg-slate-800 border-4 border-black w-full max-w-lg rounded-3xl neo-box overflow-hidden max-h-[85vh] flex flex-col">\
+            \
+            <div class="bg-rose-600 border-b-4 border-black p-5 flex items-center justify-between text-white">\
+                <h3 class="font-outfit font-black text-xl flex items-center gap-2">\
+                    <i class="fa-solid fa-heart text-yellow-300 animate-pulse"></i> Saved Favorite Words\
+                </h3>\
+                <button onclick="closeFavoritesModal()" class="w-8 h-8 rounded-full bg-black/30 flex items-center justify-center hover:bg-black/50 text-white font-bold text-sm">\
+                    <i class="fa-solid fa-xmark"></i>\
+                </button>\
+            </div>\
+\
+            <div class="p-5 flex-1 overflow-y-auto space-y-3" id="favs-list-container">\
+                <!-- Dynamic Favorites List -->\
+            </div>\
+\
+            <div class="bg-slate-900 p-4 border-t-3 border-black flex justify-between items-center text-xs">\
+                <span class="text-slate-400 font-semibold font-outfit" id="fav-count-indicator">0 saved terms</span>\
+                <span class="text-neoYellow font-bold font-outfit">Practice daily to memorize! \uc0\u55357 \u56613 </span>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <!-- USAGE EXAMPLE INFO MODAL (i) -->\
+    <div id="usage-modal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-center justify-center p-4 hidden">\
+        <div class="bg-slate-800 border-4 border-black w-full max-w-md rounded-3xl neo-box overflow-hidden p-6">\
+            <div class="flex items-center justify-between mb-4">\
+                <span class="bg-neoBlue text-black font-outfit font-bold text-xs px-3 py-1 border-2 border-black rounded-full uppercase">\
+                    Slang Context Guide\
+                </span>\
+                <button onclick="closeUsageModal()" class="w-8 h-8 rounded-full bg-slate-700/80 flex items-center justify-center hover:bg-slate-600 text-white">\
+                    <i class="fa-solid fa-x"></i>\
+                </button>\
+            </div>\
+            \
+            <div class="space-y-4">\
+                <div>\
+                    <h4 id="usage-word-title" class="text-2xl font-outfit font-black text-neoYellow">Bodega</h4>\
+                    <p id="usage-word-origin" class="text-xs text-slate-400 mt-0.5 font-outfit">Slang Region Indicator</p>\
+                </div>\
+\
+                <div class="bg-slate-900 p-4 rounded-xl border-2 border-black">\
+                    <p class="text-xs font-bold text-neoPink uppercase mb-1">Everyday Conversation Example</p>\
+                    <p id="usage-ex-en" class="text-white italic font-bold text-base leading-relaxed">\
+                        "Example sentence"\
+                    </p>\
+                </div>\
+\
+                <div class="pt-2 text-xs text-slate-400 leading-relaxed border-t border-slate-700 flex items-start gap-2">\
+                    <i class="fa-solid fa-lightbulb text-amber-400 mt-0.5"></i>\
+                    <p>\
+                        <strong>Teacher's Tip:</strong> Street slang fits best in informal, everyday contexts. Practice using it when talking to friends, texting, or watching contemporary shows!\
+                    </p>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <!-- TOAST ALERTS ROOT -->\
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-xs pointer-events-none"></div>\
+\
+    <script>\
+        /* THE CURATED VOCABULARY DATABASE WITH SPECIFIC ACCURATE IMAGE ASSETS */\
+        const slangDatabase = [\
+            \{\
+                id: 1,\
+                word: "Bodega",\
+                origin: "US", \
+                originDesc: "\uc0\u55357 \u56829  New York City (NYC Slang)",\
+                definition: "A small, 24/7 corner grocery store in NYC, famous for quick snacks and sandwiches.",\
+                imgUrl: "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=500&q=80", \
+                exampleEng: "I'm going to the bodega to buy a soda.",\
+                contextTip: "Usually associated with Spanish-speaking community corner shops. Essential to New York neighborhoods.",\
+                accent: "US"\
+            \},\
+            \{\
+                id: 2,\
+                word: "Deadass",\
+                origin: "US",\
+                originDesc: "\uc0\u55357 \u56829  New York City (NYC Slang)",\
+                definition: "Seriously, honestly, or 'for real.' Used to emphasize that you are telling the absolute truth.",\
+                imgUrl: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "I deadass saw Jay-Z on the subway today.",\
+                contextTip: "Used dynamically to show extreme sincerity or questioning someone else's story ('Deadass?').",\
+                accent: "US"\
+            \},\
+            \{\
+                id: 3,\
+                word: "Dude",\
+                origin: "US",\
+                originDesc: "\uc0\u55356 \u56826 \u55356 \u56824  United States Slang",\
+                definition: "A casual way to say friend, bro, or guy. Extremely common across all demographics in the US.",\
+                imgUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "Hey dude, what are you doing tonight?",\
+                contextTip: "Unisex term used frequently to address friends of any gender or age.",\
+                accent: "US"\
+            \},\
+            \{\
+                id: 4,\
+                word: "Fries",\
+                origin: "US",\
+                originDesc: "\uc0\u55356 \u56826 \u55356 \u56824  United States Standard",\
+                definition: "Deep-fried, thin, crispy potato strips (American style French Fries).",\
+                imgUrl: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "Can I get a burger with extra fries, please?",\
+                contextTip: "Usually paired with ketchup or salt. In British English, these are called thin chips.",\
+                accent: "US"\
+            \},\
+            \{\
+                id: 5,\
+                word: "Trash",\
+                origin: "US",\
+                originDesc: "\uc0\u55356 \u56826 \u55356 \u56824  United States Slang",\
+                definition: "Garbage. In street terms, it describes something of very low quality, terrible, or useless.",\
+                imgUrl: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "That new movie was complete trash.",\
+                contextTip: "Equivalent to garbage or rubbish. Highly casual and expressive of personal dislike.",\
+                accent: "US"\
+            \},\
+            \{\
+                id: 6,\
+                word: "Mate",\
+                origin: "UK",\
+                originDesc: "\uc0\u55356 \u57249  London (LDN Slang)",\
+                definition: "The British equivalent of 'dude' or 'bro.' It means friend, pal, or partner.",\
+                imgUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "Thanks for the help, mate.",\
+                contextTip: "Very friendly and warm. Also used in working environments as a sign of solidarity.",\
+                accent: "UK"\
+            \},\
+            \{\
+                id: 7,\
+                word: "Innit",\
+                origin: "UK",\
+                originDesc: "\uc0\u55356 \u57249  London (LDN Slang)",\
+                definition: "Short for 'isn't it?'. Used at the end of a sentence to say 'right?' or ask for agreement.",\
+                imgUrl: "https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "It's very cold today, innit?",\
+                contextTip: "One of the most famous contractions in modern multicultural London English (MLE).",\
+                accent: "UK"\
+            \},\
+            \{\
+                id: 8,\
+                word: "Chips",\
+                origin: "UK",\
+                originDesc: "\uc0\u55356 \u56812 \u55356 \u56807  British Standard",\
+                definition: "Thick-cut, chunky deep-fried potatoes (British style, like in Fish & Chips).",\
+                imgUrl: "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "I love eating fish and chips on Fridays.",\
+                contextTip: "Thicker and softer on the inside than American style thin French fries.",\
+                accent: "UK"\
+            \},\
+            \{\
+                id: 9,\
+                word: "Corner shop",\
+                origin: "UK",\
+                originDesc: "\uc0\u55356 \u57249  London (LDN Slang)",\
+                definition: "The UK version of a bodega. A small, local neighborhood convenience store.",\
+                imgUrl: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "Buy some milk at the corner shop, please.",\
+                contextTip: "Usually owned by local families. Ideal for grab-and-go sweets, papers, and groceries.",\
+                accent: "UK"\
+            \},\
+            \{\
+                id: 10,\
+                word: "Rubbish",\
+                origin: "UK",\
+                originDesc: "\uc0\u55356 \u56812 \u55356 \u56807  British Standard",\
+                definition: "Waste, garbage, or trash. Frequently used to describe something bad, useless, or untrue.",\
+                imgUrl: "https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?auto=format&fit=crop&w=500&q=80",\
+                exampleEng: "Don't watch that show, it's absolute rubbish.",\
+                contextTip: "Can refer to actual physical waste, or conceptually to an argument or piece of bad news.",\
+                accent: "UK"\
+            \}\
+        ];\
+\
+        let filteredList = [...slangDatabase];\
+        let currentIndex = 0;\
+        let favoriteList = JSON.parse(localStorage.getItem('vibespeak_favs_v2')) || [];\
+        \
+        // Unscramble Game State\
+        let currentScrambledLetters = [];\
+        let currentUserGuess = [];\
+\
+        // DOM Elements\
+        const flashcardInner = document.getElementById('flashcard-inner');\
+        const cardOriginBadge = document.getElementById('card-origin-badge');\
+        const cardSlangTitle = document.getElementById('card-slang-title');\
+        const cardIndexIndicator = document.getElementById('card-index-indicator');\
+        const favBtnFront = document.getElementById('fav-btn-front');\
+        const favBtnBack = document.getElementById('fav-btn-back');\
+        const cardBackSlangWord = document.getElementById('card-back-slang-word');\
+        const cardBackDefinition = document.getElementById('card-back-definition');\
+        const cardFrontVisualImg = document.getElementById('card-front-visual-img');\
+        const accentLbl = document.getElementById('accent-lbl');\
+        const deckTracker = document.getElementById('deck-tracker');\
+        const panelExampleSentence = document.getElementById('panel-example-sentence');\
+        const favBadgeCount = document.getElementById('fav-badge-count');\
+\
+        function smoothScroll(event, targetId) \{\
+            if (event) \{\
+                event.preventDefault();\
+                event.stopPropagation();\
+            \}\
+            const targetElement = document.getElementById(targetId);\
+            if (targetElement) \{\
+                targetElement.scrollIntoView(\{\
+                    behavior: 'smooth',\
+                    block: 'start'\
+                \});\
+            \}\
+        \}\
+\
+        window.addEventListener('DOMContentLoaded', () => \{\
+            updateUI();\
+            updateFavoritesBadge();\
+            renderSlangIndexTable();\
+            generateQuizQuestion();\
+        \});\
+\
+        // Toggle card flip on click\
+        flashcardInner.addEventListener('click', (e) => \{\
+            // Prevent flip if clicked on inner interactive buttons or forms\
+            if (e.target.closest('button') || e.target.closest('#scramble-options-container') || e.target.closest('#scramble-guess-box')) \{\
+                return;\
+            \}\
+            flashcardInner.classList.toggle('card-flipped');\
+        \});\
+\
+        function updateUI() \{\
+            if (filteredList.length === 0) \{\
+                cardSlangTitle.textContent = "No Matches Found";\
+                cardBackSlangWord.textContent = "No Data Available";\
+                cardBackDefinition.textContent = "Try searching for a different slang word or change the country filters.";\
+                cardFrontVisualImg.src = "https://placehold.co/400x250/1e293b/ffffff?text=No+Results";\
+                deckTracker.textContent = "0 / 0";\
+                cardIndexIndicator.textContent = "Empty Stack";\
+                return;\
+            \}\
+\
+            const currentItem = filteredList[currentIndex];\
+            const isFavorite = favoriteList.includes(currentItem.id);\
+\
+            // FRONT OF CARD\
+            cardSlangTitle.textContent = currentItem.word;\
+            cardFrontVisualImg.src = currentItem.imgUrl;\
+            cardIndexIndicator.textContent = `$\{currentIndex + 1\} of $\{filteredList.length\}`;\
+            deckTracker.textContent = `$\{currentIndex + 1\} of $\{filteredList.length\}`;\
+\
+            // Origin badges\
+            if (currentItem.origin === 'US') \{\
+                cardOriginBadge.className = "bg-neoBlue text-black font-outfit font-bold text-xs px-3 py-1.5 border-2 border-black rounded-full flex items-center gap-1.5";\
+                cardOriginBadge.innerHTML = `<span class="text-base">\uc0\u55356 \u56826 \u55356 \u56824 </span> NYC Slang`;\
+                accentLbl.textContent = "US Accent Synthesizer";\
+            \} else \{\
+                cardOriginBadge.className = "bg-neoPink text-black font-outfit font-bold text-xs px-3 py-1.5 border-2 border-black rounded-full flex items-center gap-1.5";\
+                cardOriginBadge.innerHTML = `<span class="text-base">\uc0\u55356 \u56812 \u55356 \u56807 </span> London Slang`;\
+                accentLbl.textContent = "UK Accent Synthesizer";\
+            \}\
+\
+            // BACK OF CARD\
+            cardBackSlangWord.textContent = currentItem.word;\
+            cardBackDefinition.textContent = currentItem.definition;\
+\
+            // Handle Favorites buttons states\
+            const favButtons = [favBtnFront, favBtnBack];\
+            favButtons.forEach(btn => \{\
+                if (isFavorite) \{\
+                    btn.classList.add('text-rose-500', 'bg-rose-100');\
+                    btn.classList.remove('text-slate-400', 'bg-white');\
+                    btn.innerHTML = `<i class="fa-solid fa-heart text-lg text-rose-500"></i>`;\
+                \} else \{\
+                    btn.classList.remove('text-rose-500', 'bg-rose-100');\
+                    btn.classList.add('text-slate-400', 'bg-white');\
+                    btn.innerHTML = `<i class="fa-regular fa-heart text-lg text-slate-400"></i>`;\
+                \}\
+            \});\
+\
+            // UPDATE TEACHER SPOTLIGHT PANEL SIDEBAR\
+            panelExampleSentence.textContent = `"$\{currentItem.exampleEng\}"`;\
+\
+            // Reset and build the scrambling game for the current word\
+            initScrambleGame(currentItem.word);\
+        \}\
+\
+        function initScrambleGame(word) \{\
+            const cleanWord = word.replace(/\\s+/g, '').toUpperCase();\
+            currentUserGuess = [];\
+            \
+            // Generate Scrambled Array\
+            let lettersArr = cleanWord.split('');\
+            \
+            // Loop to guarantee that the scrambled letters don't match the original word by accident\
+            let shuffleCount = 0;\
+            do \{\
+                lettersArr.sort(() => Math.random() - 0.5);\
+                shuffleCount++;\
+            \} while (lettersArr.join('') === cleanWord && shuffleCount < 10);\
+            \
+            // Keep object arrays containing indexes to prevent duplicates issues\
+            currentScrambledLetters = lettersArr.map((char, index) => \{\
+                return \{ id: index, val: char, used: false \};\
+            \});\
+\
+            renderScrambleUI();\
+        \}\
+\
+        function renderScrambleUI() \{\
+            const optionsContainer = document.getElementById('scramble-options-container');\
+            const guessBox = document.getElementById('scramble-guess-box');\
+            const statusMsg = document.getElementById('scramble-status-msg');\
+\
+            optionsContainer.innerHTML = '';\
+            guessBox.innerHTML = '';\
+\
+            // Render playable scrambled option letters\
+            currentScrambledLetters.forEach(item => \{\
+                const btn = document.createElement('button');\
+                btn.textContent = item.val;\
+                \
+                if (item.used) \{\
+                    btn.className = "w-9 h-9 bg-slate-800 border-2 border-dashed border-slate-700 text-slate-600 rounded-lg text-sm font-extrabold cursor-not-allowed transform scale-90 transition-all";\
+                    btn.disabled = true;\
+                \} else \{\
+                    btn.className = "w-9 h-9 bg-neoYellow hover:bg-yellow-300 text-black border-2 border-black rounded-lg text-sm font-extrabold flex items-center justify-center shadow-[1px_1px_0px_#000] active:translate-y-0.5 transition-all";\
+                    btn.onclick = (e) => \{\
+                        e.stopPropagation();\
+                        selectLetter(item.id);\
+                    \};\
+                \}\
+                optionsContainer.appendChild(btn);\
+            \});\
+\
+            // Render current sequence of guess letters\
+            if (currentUserGuess.length === 0) \{\
+                guessBox.innerHTML = `<span class="text-xs text-slate-500 font-medium italic">Empty Slots</span>`;\
+            \} else \{\
+                currentUserGuess.forEach((char, idx) => \{\
+                    const badge = document.createElement('button');\
+                    badge.textContent = char;\
+                    badge.className = "w-9 h-9 bg-neoPink text-black border-2 border-black rounded-lg text-sm font-black flex items-center justify-center animate-bounce shadow-[1.5px_1.5px_0px_#000]";\
+                    badge.onclick = (e) => \{\
+                        e.stopPropagation();\
+                        removeGuessLetter(idx);\
+                    \};\
+                    guessBox.appendChild(badge);\
+                \});\
+            \}\
+\
+            // Verify accuracy\
+            const targetWord = filteredList[currentIndex].word.replace(/\\s+/g, '').toUpperCase();\
+            const currentGuessStr = currentUserGuess.join('');\
+\
+            if (currentGuessStr === targetWord) \{\
+                statusMsg.className = "text-xs font-bold text-neoGreen mt-1 animate-pulse";\
+                statusMsg.innerHTML = `<i class="fa-solid fa-circle-check"></i> Spell Correct! Excellent job.`;\
+            \} else if (currentGuessStr.length === targetWord.length) \{\
+                statusMsg.className = "text-xs font-bold text-neoOrange mt-1";\
+                statusMsg.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Wrong spelling. Try resetting!`;\
+            \} else \{\
+                statusMsg.className = "text-[10px] font-bold text-slate-400 mt-1";\
+                statusMsg.innerHTML = `Constructing... ($\{currentGuessStr.length\}/$\{targetWord.length\} letters)`;\
+            \}\
+        \}\
+\
+        function selectLetter(id) \{\
+            const item = currentScrambledLetters.find(x => x.id === id);\
+            if (item && !item.used) \{\
+                item.used = true;\
+                currentUserGuess.push(item.val);\
+                renderScrambleUI();\
+            \}\
+        \}\
+\
+        function removeGuessLetter(idx) \{\
+            const letterToRemove = currentUserGuess[idx];\
+            const match = currentScrambledLetters.find(x => x.val === letterToRemove && x.used === true);\
+            if (match) \{\
+                match.used = false;\
+            \}\
+            currentUserGuess.splice(idx, 1);\
+            renderScrambleUI();\
+        \}\
+\
+        function resetScrambleGame(event) \{\
+            if (event) event.stopPropagation();\
+            if (filteredList.length === 0) return;\
+            initScrambleGame(filteredList[currentIndex].word);\
+        \}\
+\
+        function filterSlangs(region) \{\
+            const btnAll = document.getElementById('btn-filter-all');\
+            const btnUs = document.getElementById('btn-filter-us');\
+            const btnUk = document.getElementById('btn-filter-uk');\
+\
+            [btnAll, btnUs, btnUk].forEach(btn => \{\
+                btn.className = "flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-slate-700 text-white text-sm";\
+            \});\
+\
+            if (region === 'all') \{\
+                filteredList = [...slangDatabase];\
+                btnAll.className = "flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-neoYellow text-black text-sm";\
+                showToast("\uc0\u9889  Showing all curated vocabulary items.");\
+            \} else if (region === 'US') \{\
+                filteredList = slangDatabase.filter(item => item.origin === 'US');\
+                btnUs.className = "flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-neoBlue text-black text-sm";\
+                showToast("\uc0\u55356 \u56826 \u55356 \u56824  Filtered: New York City Slang vocabulary.");\
+            \} else if (region === 'UK') \{\
+                filteredList = slangDatabase.filter(item => item.origin === 'UK');\
+                btnUk.className = "flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-neoPink text-black text-sm";\
+                showToast("\uc0\u55356 \u56812 \u55356 \u56807  Filtered: London Slang vocabulary.");\
+            \}\
+\
+            currentIndex = 0;\
+            flashcardInner.classList.remove('card-flipped');\
+            updateUI();\
+        \}\
+\
+        function handleQuickSearch(query) \{\
+            const normalizedQuery = query.toLowerCase().trim();\
+            if (normalizedQuery === "") \{\
+                filteredList = [...slangDatabase];\
+            \} else \{\
+                filteredList = slangDatabase.filter(item => \
+                    item.word.toLowerCase().includes(normalizedQuery) || \
+                    item.definition.toLowerCase().includes(normalizedQuery)\
+                );\
+            \}\
+            currentIndex = 0;\
+            flashcardInner.classList.remove('card-flipped');\
+            updateUI();\
+        \}\
+\
+        // Navigation actions\
+        function nextCard() \{\
+            if (filteredList.length === 0) return;\
+            flashcardInner.classList.remove('card-flipped');\
+            setTimeout(() => \{\
+                currentIndex = (currentIndex + 1) % filteredList.length;\
+                updateUI();\
+            \}, 150);\
+        \}\
+\
+        function prevCard() \{\
+            if (filteredList.length === 0) return;\
+            flashcardInner.classList.remove('card-flipped');\
+            setTimeout(() => \{\
+                currentIndex = (currentIndex - 1 + filteredList.length) % filteredList.length;\
+                updateUI();\
+            \}, 150);\
+        \}\
+\
+        function speakCurrentSlang() \{\
+            if (filteredList.length === 0) return;\
+            const currentItem = filteredList[currentIndex];\
+            \
+            if (!('speechSynthesis' in window)) \{\
+                showToast("\uc0\u10060  Speech synthesis is not supported on your browser.");\
+                return;\
+            \}\
+\
+            const utterance = new SpeechSynthesisUtterance(currentItem.word);\
+            const voices = window.speechSynthesis.getVoices();\
+            \
+            if (currentItem.accent === "UK") \{\
+                const ukVoice = voices.find(v => v.lang.includes('en-GB') || v.lang.includes('en-IE'));\
+                if (ukVoice) utterance.voice = ukVoice;\
+                utterance.lang = 'en-GB';\
+            \} else \{\
+                const usVoice = voices.find(v => v.lang.includes('en-US'));\
+                if (usVoice) utterance.voice = usVoice;\
+                utterance.lang = 'en-US';\
+            \}\
+\
+            utterance.rate = 0.8;\
+            window.speechSynthesis.speak(utterance);\
+            showToast(`\uc0\u55357 \u56586  Playing native $\{currentItem.accent === 'US' ? 'US' : 'British'\} accent.`);\
+        \}\
+\
+        function toggleCurrentFavorite() \{\
+            if (filteredList.length === 0) return;\
+            const currentItem = filteredList[currentIndex];\
+            toggleFavorite(currentItem.id);\
+        \}\
+\
+        function toggleFavorite(id) \{\
+            const index = favoriteList.indexOf(id);\
+            const slangObj = slangDatabase.find(s => s.id === id);\
+            \
+            if (index > -1) \{\
+                favoriteList.splice(index, 1);\
+                showToast(`\uc0\u55357 \u56468  Removed from favorites: "$\{slangObj.word\}"`);\
+            \} else \{\
+                favoriteList.push(id);\
+                showToast(`\uc0\u55357 \u56470  Added to favorites: "$\{slangObj.word\}"`);\
+            \}\
+\
+            localStorage.setItem('vibespeak_favs_v2', JSON.stringify(favoriteList));\
+            updateFavoritesBadge();\
+            updateUI(); \
+            renderSlangIndexTable(); \
+            \
+            if (!document.getElementById('favorites-modal').classList.contains('hidden')) \{\
+                renderFavoritesList();\
+            \}\
+        \}\
+\
+        function updateFavoritesBadge() \{\
+            favBadgeCount.textContent = favoriteList.length;\
+        \}\
+\
+        function openFavoritesModal() \{\
+            document.getElementById('favorites-modal').classList.remove('hidden');\
+            renderFavoritesList();\
+        \}\
+\
+        function closeFavoritesModal() \{\
+            document.getElementById('favorites-modal').classList.add('hidden');\
+        \}\
+\
+        function renderFavoritesList() \{\
+            const container = document.getElementById('favs-list-container');\
+            const countIndicator = document.getElementById('fav-count-indicator');\
+            \
+            container.innerHTML = "";\
+            countIndicator.textContent = `$\{favoriteList.length\} saved word(s)`;\
+\
+            if (favoriteList.length === 0) \{\
+                container.innerHTML = `\
+                    <div class="text-center py-8 text-slate-400">\
+                        <p class="text-4xl mb-3">\uc0\u55358 \u56619 </p>\
+                        <p class="font-outfit font-bold">No saved words found!</p>\
+                        <p class="text-xs text-slate-500 mt-1">Tap the heart icon on any card front or back to view it inside this quick study deck.</p>\
+                    </div>\
+                `;\
+                return;\
+            \}\
+\
+            favoriteList.forEach(id => \{\
+                const slang = slangDatabase.find(item => item.id === id);\
+                if (!slang) return;\
+\
+                const card = document.createElement('div');\
+                card.className = "bg-slate-900 border-2 border-black p-3.5 rounded-xl flex items-center justify-between shadow-[2px_2px_0px_#000]";\
+                card.innerHTML = `\
+                    <div class="flex items-center gap-3">\
+                        <span class="text-lg">$\{slang.origin === 'US' ? '\uc0\u55356 \u56826 \u55356 \u56824 ' : '\u55356 \u56812 \u55356 \u56807 '\}</span>\
+                        <div>\
+                            <p class="font-outfit font-black text-neoYellow text-sm">$\{slang.word\}</p>\
+                            <p class="text-xs text-slate-400 line-clamp-1">$\{slang.definition\}</p>\
+                        </div>\
+                    </div>\
+                    <div class="flex items-center gap-1.5">\
+                        <button onclick="speakSelectedWord('$\{slang.word\}', '$\{slang.accent\}')" class="w-8 h-8 rounded-lg bg-indigo-900 text-indigo-300 border border-indigo-700 flex items-center justify-center text-xs" title="Listen pronunciation">\
+                            <i class="fa-solid fa-volume-high"></i>\
+                        </button>\
+                        <button onclick="jumpToSlang($\{slang.id\})" class="w-8 h-8 rounded-lg bg-neoYellow text-black border border-black flex items-center justify-center text-xs" title="View Flashcard">\
+                            <i class="fa-solid fa-eye"></i>\
+                        </button>\
+                        <button onclick="toggleFavorite($\{slang.id\})" class="w-8 h-8 rounded-lg bg-rose-950 text-rose-300 border border-rose-800 flex items-center justify-center text-xs" title="Remove">\
+                            <i class="fa-solid fa-trash-can"></i>\
+                        </button>\
+                    </div>\
+                `;\
+                container.appendChild(card);\
+            \});\
+        \}\
+\
+        function speakSelectedWord(word, accent) \{\
+            if (!('speechSynthesis' in window)) return;\
+            const utterance = new SpeechSynthesisUtterance(word);\
+            const voices = window.speechSynthesis.getVoices();\
+            if (accent === "UK") \{\
+                const ukVoice = voices.find(v => v.lang.includes('en-GB'));\
+                if (ukVoice) utterance.voice = ukVoice;\
+                utterance.lang = 'en-GB';\
+            \} else \{\
+                const usVoice = voices.find(v => v.lang.includes('en-US'));\
+                if (usVoice) utterance.voice = usVoice;\
+                utterance.lang = 'en-US';\
+            \}\
+            utterance.rate = 0.8;\
+            window.speechSynthesis.speak(utterance);\
+        \}\
+\
+        // Jump to any exact slang word instantly\
+        function jumpToSlang(id) \{\
+            closeFavoritesModal();\
+            const originalIndex = slangDatabase.findIndex(item => item.id === id);\
+            \
+            // Reset filters first\
+            filteredList = [...slangDatabase];\
+            const btnAll = document.getElementById('btn-filter-all');\
+            const btnUs = document.getElementById('btn-filter-us');\
+            const btnUk = document.getElementById('btn-filter-uk');\
+            \
+            btnAll.className = "flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-neoYellow text-black text-sm";\
+            [btnUs, btnUk].forEach(btn => \{\
+                btn.className = "flex-1 sm:flex-none font-outfit font-bold px-4 py-2 border-2 border-black rounded-lg neo-btn bg-slate-700 text-white text-sm";\
+            \});\
+\
+            currentIndex = originalIndex;\
+            flashcardInner.classList.remove('card-flipped');\
+            updateUI();\
+            \
+            // Smooth scroll directly to card visual section\
+            smoothScroll(null, 'flashcard-section');\
+        \}\
+\
+        function triggerUsageExampleModal() \{\
+            if (filteredList.length === 0) return;\
+            const currentItem = filteredList[currentIndex];\
+            openExampleInfoModal(currentItem.id);\
+        \}\
+\
+        function openExampleInfoModal(id) \{\
+            const currentItem = slangDatabase.find(item => item.id === id);\
+            if (!currentItem) return;\
+            \
+            document.getElementById('usage-word-title').textContent = currentItem.word;\
+            document.getElementById('usage-word-origin').textContent = `$\{currentItem.originDesc\} | Accent: English ($\{currentItem.accent\})`;\
+            document.getElementById('usage-ex-en').textContent = `"$\{currentItem.exampleEng\}"`;\
+            \
+            document.getElementById('usage-modal').classList.remove('hidden');\
+        \}\
+\
+        function closeUsageModal() \{\
+            document.getElementById('usage-modal').classList.add('hidden');\
+        \}\
+\
+        function renderSlangIndexTable() \{\
+            const tbody = document.getElementById('slang-index-tbody');\
+            tbody.innerHTML = "";\
+\
+            slangDatabase.forEach(item => \{\
+                const isFavorite = favoriteList.includes(item.id);\
+                const tr = document.createElement('tr');\
+                tr.className = "hover:bg-slate-800/40 transition-colors";\
+                tr.setAttribute('data-word', item.word.toLowerCase());\
+                tr.setAttribute('data-definition', item.definition.toLowerCase());\
+\
+                tr.innerHTML = `\
+                    <td class="py-4 px-4 font-outfit font-bold text-white text-base">\
+                        $\{item.word\}\
+                    </td>\
+                    <td class="py-4 px-4">\
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold border $\{item.origin === 'US' ? 'bg-blue-950 text-blue-300 border-blue-800' : 'bg-pink-950 text-pink-300 border-pink-800'\}">\
+                            $\{item.origin === 'US' ? '\uc0\u55356 \u56826 \u55356 \u56824  US' : '\u55356 \u56812 \u55356 \u56807  UK'\}\
+                        </span>\
+                    </td>\
+                    <td class="py-4 px-4 max-w-xs text-xs md:text-sm text-slate-300">\
+                        $\{item.definition\}\
+                    </td>\
+                    <td class="py-4 px-4 text-xs italic text-slate-400 hidden md:table-cell max-w-sm">\
+                        "$\{item.exampleEng\}"\
+                    </td>\
+                    <td class="py-4 px-4 text-center">\
+                        <div class="flex items-center justify-center gap-1.5">\
+                            <button onclick="speakSelectedWord('$\{item.word\}', '$\{item.accent\}')" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 flex items-center justify-center text-xs" title="Listen voice">\
+                                <i class="fa-solid fa-volume-high"></i>\
+                            </button>\
+                            <button onclick="openExampleInfoModal($\{item.id\})" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-neoBlue flex items-center justify-center text-xs" title="Usage details">\
+                                <i class="fa-solid fa-circle-info"></i>\
+                            </button>\
+                            <button onclick="jumpToSlang($\{item.id\})" class="w-8 h-8 rounded-lg bg-neoYellow text-black border border-black flex items-center justify-center text-xs font-bold" title="Open card">\
+                                <i class="fa-solid fa-up-right-from-square"></i>\
+                            </button>\
+                            <button onclick="toggleFavorite($\{item.id\})" class="w-8 h-8 rounded-lg border flex items-center justify-center text-xs $\{isFavorite ? 'bg-rose-950 text-rose-300 border-rose-800' : 'bg-slate-800 text-slate-400 border-slate-600 hover:text-rose-500'\}" title="Add to favorites">\
+                                <i class="fa-solid fa-heart"></i>\
+                            </button>\
+                        </div>\
+                    </td>\
+                `;\
+                tbody.appendChild(tr);\
+            \});\
+        \}\
+\
+        function filterIndexTable(query) \{\
+            const normalizedQuery = query.toLowerCase().trim();\
+            const rows = document.querySelectorAll('#slang-index-tbody tr');\
+\
+            rows.forEach(row => \{\
+                const word = row.getAttribute('data-word');\
+                const definition = row.getAttribute('data-definition');\
+\
+                if (word.includes(normalizedQuery) || definition.includes(normalizedQuery)) \{\
+                    row.classList.remove('hidden');\
+                \} else \{\
+                    row.classList.add('hidden');\
+                \}\
+            \});\
+        \}\
+\
+        let activeQuizSlang = null;\
+\
+        function generateQuizQuestion() \{\
+            const quizContainer = document.getElementById('quiz-container');\
+            quizContainer.innerHTML = "";\
+\
+            const randomIndex = Math.floor(Math.random() * slangDatabase.length);\
+            activeQuizSlang = slangDatabase[randomIndex];\
+\
+            const distractors = slangDatabase\
+                .filter(item => item.id !== activeQuizSlang.id)\
+                .sort(() => 0.5 - Math.random())\
+                .slice(0, 2);\
+\
+            const options = [...distractors, activeQuizSlang].sort(() => 0.5 - Math.random());\
+\
+            quizContainer.innerHTML = `\
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 mb-3">\
+                    <p class="text-xs text-slate-400 uppercase font-bold mb-1">What is the meaning of:</p>\
+                    <p class="font-outfit font-black text-xl text-neoYellow">"$\{activeQuizSlang.word\}"</p>\
+                </div>\
+                <div class="space-y-2" id="quiz-options-box">\
+                    $\{options.map((opt, idx) => `\
+                        <button onclick="verifyQuizAnswer(this, $\{opt.id\})" class="w-full text-left bg-slate-900/50 hover:bg-slate-900 border border-slate-700/80 p-3 rounded-lg text-xs leading-relaxed transition-colors flex items-start gap-2 text-slate-200">\
+                            <span class="bg-indigo-900 text-indigo-200 w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-[10px] mt-0.5">$\{String.fromCharCode(65 + idx)\}</span>\
+                            <span>$\{opt.definition\}</span>\
+                        </button>\
+                    `).join('')\}\
+                </div>\
+                <div class="flex justify-end mt-2">\
+                    <button onclick="generateQuizQuestion()" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center gap-1 font-outfit">\
+                        <i class="fa-solid fa-rotate-right"></i> Next Question\
+                    </button>\
+                </div>\
+            `;\
+        \}\
+\
+        function verifyQuizAnswer(element, selectedId) \{\
+            const optionsBox = document.getElementById('quiz-options-box');\
+            const buttons = optionsBox.querySelectorAll('button');\
+\
+            buttons.forEach(btn => \{\
+                btn.disabled = true;\
+            \});\
+\
+            if (selectedId === activeQuizSlang.id) \{\
+                element.className = "w-full text-left bg-green-950/60 border-2 border-green-500 p-3 rounded-lg text-xs leading-relaxed flex items-start gap-2 text-green-200";\
+                showToast("\uc0\u55356 \u57225  Awesome job! Correct Answer.");\
+            \} else \{\
+                element.className = "w-full text-left bg-rose-950/60 border-2 border-rose-500 p-3 rounded-lg text-xs leading-relaxed flex items-start gap-2 text-rose-200";\
+                showToast("\uc0\u10060  Incorrect. Try again on the next one!");\
+                \
+                buttons.forEach(btn => \{\
+                    if (btn.outerHTML.includes(activeQuizSlang.definition)) \{\
+                        btn.className = "w-full text-left bg-green-950/30 border-2 border-green-700 p-3 rounded-lg text-xs leading-relaxed flex items-start gap-2 text-green-300";\
+                    \}\
+                \});\
+            \}\
+        \}\
+\
+        function showToast(message) \{\
+            const container = document.getElementById('toast-container');\
+            const toast = document.createElement('div');\
+            \
+            toast.className = "bg-slate-900 border-3 border-black p-4 rounded-xl shadow-[4px_4px_0px_#000] text-slate-200 font-bold text-xs flex items-center gap-2 transform translate-y-2 opacity-0 transition-all duration-300 pointer-events-auto cursor-pointer";\
+            toast.innerHTML = `\
+                <i class="fa-solid fa-circle-info text-neoYellow text-sm"></i>\
+                <span class="font-outfit">$\{message\}</span>\
+            `;\
+\
+            toast.onclick = () => \{\
+                toast.classList.add('opacity-0', 'translate-y-2');\
+                setTimeout(() => toast.remove(), 300);\
+            \};\
+\
+            container.appendChild(toast);\
+\
+            setTimeout(() => \{\
+                toast.classList.remove('opacity-0', 'translate-y-2');\
+            \}, 10);\
+\
+            setTimeout(() => \{\
+                toast.classList.add('opacity-0', 'translate-y-2');\
+                setTimeout(() => toast.remove(), 300);\
+            \}, 3500);\
+        \}\
+    </script>\
+</body>\
+</html>}
